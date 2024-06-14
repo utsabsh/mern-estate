@@ -1,5 +1,6 @@
 import Listing from "../models/listing.model.js";
 import { errorHandler } from "../utils/error.js";
+
 export const createListing = async (req, res, next) => {
   try {
     const listing = await Listing.create(req.body);
@@ -48,6 +49,7 @@ export const updateListing = async (req, res, next) => {
     next(error);
   }
 };
+
 export const getListing = async (req, res, next) => {
   try {
     const listing = await Listing.findById(req.params.id);
@@ -59,6 +61,7 @@ export const getListing = async (req, res, next) => {
     next(error);
   }
 };
+
 export const getListings = async (req, res, next) => {
   try {
     const limit = parseInt(req.query.limit) || 9;
